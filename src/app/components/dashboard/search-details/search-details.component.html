@@ -1,0 +1,10 @@
+<mat-progress-bar *ngIf="loading" mode="query"></mat-progress-bar>
+  <div class="row">
+    <div class="col-lg-3 side-bar">
+        <app-side-filter *ngIf="hotelList.length!=0"></app-side-filter>
+      </div>
+      <div class="col-lg-8"> 
+       <app-hotelcard  *ngFor="let hotel of hotelList" [hotel]="hotel"></app-hotelcard>
+   </div>
+  </div>
+  

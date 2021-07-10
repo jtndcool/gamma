@@ -1,0 +1,19 @@
+<!-- <app-search *ngIf="hotelList.length==0" (searchItem)="searchedDataReceiver($event)"></app-search> -->
+<app-search *ngIf="isChildloaded" (click)="searchHotels()" (searchItem)="searchedDataReceiver($event)"></app-search>
+
+    <router-outlet></router-outlet>
+<mat-divider></mat-divider>
+<div *ngIf="isChildloaded" class="row" style="display: flex; flex-direction:column;">
+    <h2 style="text-align:center; font-family: Verdana, Geneva, Tahoma, sans-serif;"><b>We Accept all these methods</b></h2>
+    <div class="payment-methods" style="display: flex; justify-content:space-evenly;">
+        <img src="../../../assets/american-express.png"/>
+        <img src="../../../assets/paypal.png"/>
+        <img src="../../../assets/symbol.png"/>
+        <img src="../../../assets/paytm.png"/>
+        <img src="../../../assets/dollar.png"/>
+    </div>
+</div>
+<mat-divider></mat-divider>
+<br>
+<app-carousel *ngIf="isChildloaded"></app-carousel>
+

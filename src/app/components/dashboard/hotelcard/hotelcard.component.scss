@@ -1,0 +1,68 @@
+img{ 
+    width:80%;
+    float:right;
+}
+.row {
+    display: flex; /* equal height of the children */
+  }
+  
+  .col {
+    flex: 1; /* additionally, equal width */
+
+  }
+  h2{ 
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  .address{
+      margin-top:-20px;
+  }
+  .rating-container{
+     display: flex;
+     align-items:baseline;
+     font-family: Arial, Helvetica, sans-serif;
+  }
+.features-container{
+    display: flex;
+}
+  .parking ,.ac , .wifi{
+      display: flex;
+      align-items:center;
+      margin-right: 45px;
+  }
+  .parking img, .ac img, .wifi img{
+      width:25px
+  }
+  .price-container{
+      align-items:center;
+      margin-top: 95px;
+  }
+  .book{
+      margin-left: auto;
+  }
+  .price .real{
+      color: red;
+      font-weight: 400;
+      font-size:30px;
+      font-family: monospace;
+
+  }
+  .del{
+      font-size:15px;
+  }
+  .offer{
+      color:green;
+      font-size: 10px;
+      font-weight: bold;
+  }
+  .book-button{
+    background-color:rgb(42, 126, 42);
+    color:white;
+  }
+  .img-hotel img{
+      max-height:250px;
+  }
+  .row{
+      margin-bottom: 20px;
+      margin-top:10px;
+  }

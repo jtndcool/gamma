@@ -1,0 +1,114 @@
+.heading {
+    display: flex;
+    align-items: baseline;
+  
+  }
+  
+  .rating {
+    padding: 2px 1px 2px 1px;
+  }
+  
+  .cart {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cart-button {
+    padding-left: 50px;
+    padding-right: 50px;
+  
+  }
+  
+  .detail {
+    padding: 40px;
+  }
+  
+  .spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #product-image {
+    max-width: 100%;
+    max-height: 100%;
+    -moz-box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
+    box-shadow: inset 0px 0px 6px 6px rgba(255, 255, 255, 1);
+  
+  }
+  
+  @media screen and (max-width: 361px) {
+    .img {
+      margin-top: 250px;
+    }
+  
+  
+    .cart-button {
+      padding: 30px;
+      width: fit-content;
+      font-size: small;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .heading{
+      display: block;
+    }
+    a{ margin: auto;}
+    .item-cart {
+      padding: 3px;
+      width: fit-content;
+      font-size: small;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      .cart-button {
+        padding: 30px;
+      }
+    }
+  
+  
+  }
+  .features-container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+  .parking ,.ac , .wifi, .pool, .taxi, .bus-stand, .airport{
+      display: flex;
+      flex-direction: row;
+      align-items:center;
+      margin: 15px;
+      border-right: 1px; 
+  }
+  .parking img,.ac img , .wifi img, .pool img, .taxi img, .bus-stand img, .airport img{
+      width:25px;
+      margin-right: 15px;
+  }
+  .charges, .taxes, .discounts, .after-disc, .total, .coupon{
+      display: flex;
+      justify-content:space-between;
+  }
+  .coupon{
+      align-items:baseline;
+  }
+  .discounts{
+      color:green
+  }
+  .taxes{
+      color:rgb(231, 99, 99)
+  }
+ 
+  mat-card  h3, h4{
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      
+  }
+  .total{
+      font-weight: bold;
+  }
+  .reviews h4{
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 300;
+  }

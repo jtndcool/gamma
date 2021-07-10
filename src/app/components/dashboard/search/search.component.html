@@ -1,0 +1,136 @@
+<!-- 
+<mat-card>
+  <section class="search-sec">
+    <div class="container">
+        <form action="#" method="post" (ngSubmit)="onSearch(searchForm)" #searchForm="ngForm" novalidate="novalidate">
+            <div class="row">
+             
+                  
+                    <div class="col-lg-2 city">
+                          <mat-form-field >
+                            <mat-label>City</mat-label>
+                            <mat-select [(ngModel)]="selectedCity" name="city">
+                              <mat-option *ngFor="let city of cities" [value]="city.value">
+                                {{city.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+                <div class="col-lg-1">
+                      
+                </div>
+                         <div class="col-lg-6">
+                           <div class="row">
+                             <div class="col-lg-5">
+                              <mat-form-field>
+                                <mat-label>From date</mat-label>
+                                <input [(ngModel)]="fromDate" name="fromDate" matInput [matDatepicker]="picker">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                             </div>
+                             <div class="col-lg-5">
+                              <mat-form-field >
+                                <mat-label>To date</mat-label>
+                                <input [(ngModel)]="toDate" name="toDate" matInput [matDatepicker]="picker1">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
+                             </div>
+                             <div class="col-lg-1">
+                              <mat-form-field>
+                                <mat-label>Number of guests</mat-label>
+                                <mat-select [(ngModel)]="noOfGuests" name="noOfGuests">
+                                  <mat-option *ngFor="let guest of guests" [value]="guest">
+                                    {{guest}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </div>
+                           </div>
+                         
+                        </div>
+                    
+                      
+                        <div class="col-lg-1">
+
+                        </div>
+                        <div class="col-lg-2">
+                            <button type="submit" class="btn btn-success wrn-btn btn-sm">Search</button>
+                        </div>
+                    
+                
+            </div>
+        </form>
+    </div>
+</section>
+
+</mat-card>
+
+
+
+
+
+
+ -->
+
+
+ <section class="search-sec">
+  <div class="container">
+      <form action="#" method="post" (ngSubmit)="onSearch(searchForm)" #searchForm="ngForm" novalidate="novalidate">
+          
+              <div class="inputs" style="display: flex; justify-content:space-around">
+
+
+                
+
+                    <div >
+                      <mat-form-field >
+                        <mat-label>City</mat-label>
+                        <mat-select [(ngModel)]="selectedCity" name="city">
+                          <mat-option *ngFor="let city of cities" [value]="city.value">
+                            {{city.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field>
+                        <mat-label>From date</mat-label>
+                        <input  [(ngModel)]="fromDate" name="fromDate" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                      <div>
+                        <mat-form-field >
+                          <mat-label>To date</mat-label>
+                          <input [(ngModel)]="toDate" name="toDate" matInput [matDatepicker]="picker1">
+                          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                          <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                      </div>
+
+                      <div >
+                        <mat-form-field>
+                          <mat-label>Number of guests</mat-label>
+                          <mat-select [(ngModel)]="noOfGuests" name="noOfGuests">
+                            <mat-option *ngFor="let guest of guests" [value]="guest">
+                              {{guest}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+
+                      
+                     
+                     
+                      <div >
+                          <button type="submit" class="btn btn-sm btn-danger wrn-btn">Search</button>
+                      </div>
+                  
+           
+          </div>
+      </form>
+  </div>
+</section>

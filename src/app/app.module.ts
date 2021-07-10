@@ -4,11 +4,6 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './dashboard/components/header/header.component';
-import { FooterComponent } from './dashboard/components/footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './dashboard/screens/login/login.component';
-import { SignupComponent } from './dashboard/screens/signup/signup.component';
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -17,7 +12,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatButtonModule} from '@angular/material/button';
@@ -26,16 +20,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatStepperModule} from '@angular/material/stepper';
-import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatDividerModule} from '@angular/material/divider';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -52,23 +44,47 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
-import { WorkExperienceComponent } from './dashboard/screens/work-experience/work-experience.component';
-import { HttpClientModule } from '@angular/common/http';
-import { JobHistoryCardComponent } from './dashboard/screens/work-experience/job-history-card/job-history-card.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './shared-components/header/header.component';
+import { FooterComponent } from './shared-components/footer/footer.component';
+import { SearchComponent } from './components/dashboard/search/search.component';
+import { HotelcardComponent } from './components/dashboard/hotelcard/hotelcard.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { HotelDetailComponent } from './components/dashboard/hotel-detail/hotel-detail.component';
+import { SideFilterComponent } from './components/dashboard/side-filter/side-filter.component';
+import { CarouselComponent } from './components/dashboard/carousel/carousel.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { SearchDetailsComponent } from './components/dashboard/search-details/search-details.component';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HttpinterceptorService } from './services/httpinterceptor.service';
+import { PastbookingsComponent } from './components/dashboard/pastbookings/pastbookings.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HeaderComponent,
+    FooterComponent,
+    SearchComponent,
+    HotelcardComponent,
+    HotelDetailComponent,
+    SideFilterComponent,
+    CarouselComponent,
+    ContactComponent,
+    SearchDetailsComponent,
     LoginComponent,
     SignupComponent,
-    FooterComponent,
-    WorkExperienceComponent,
-    JobHistoryCardComponent
+    PastbookingsComponent
   ],
   imports: [
     BrowserModule,
+    MatDatepickerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -80,9 +96,9 @@ import { ToastrModule } from 'ngx-toastr';
     CdkTableModule,
     CdkTreeModule,
     DragDropModule,
-    MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
@@ -91,19 +107,17 @@ import { ToastrModule } from 'ngx-toastr';
     MatStepperModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
+    MatDatepickerModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatNativeDateModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
     MatSliderModule,
@@ -121,9 +135,14 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    MatDatepickerModule, MatFormFieldModule, MatNativeDateModule,
+    SimpleNotificationsModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpinterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

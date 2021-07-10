@@ -1,0 +1,238 @@
+<div class="row">
+
+    
+<simple-notifications [options]="options"></simple-notifications>
+    <div class="col-lg-4 img">
+        <div class="image-div">
+            <img id="product-image" src={{hotelInfo?.image}} alt="pr"/>
+        </div>
+        <div class="col-lg-12">
+            <mat-card>
+                <h2>Price Summary</h2>
+                <mat-divider></mat-divider>
+                <div class="charges">
+                    <h3>Total Price (1 room x 2 night)</h3>
+                    <h4>₹{{hotelInfo?.price}} x 2</h4>
+                </div>
+                <div class="coupon" style="display: flex;">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                       <mat-label>Enter Coupon Code</mat-label>
+                       <input matInput placeholder="Coupon" [(ngModel)]="coupon" value="HURRY30">
+                     </mat-form-field>
+
+                     <button (click)="applyCoupon()" class="btn-sm">Apply</button>
+               </div>
+                <div class="discounts">
+                    <h3>Total discounts</h3>
+                    <h4> ₹{{discounts}}</h4>
+                </div>
+                <div class="after-disc">
+                    <h3>Price After discounts</h3>
+                    <h4>₹{{perDayPrice*2 - discounts}}</h4>
+                </div>
+                <div class="taxes">
+                    <div class="taxes-int"  style="display: flex; align-items: center;">
+                        <h3>Taxes and Service Charges &nbsp; </h3>
+                        <h6><b>10% on total price</b></h6>
+                    </div>
+                   
+                    <h4>₹230</h4>
+                </div>
+
+                
+<mat-divider></mat-divider>
+                <div class="total">
+                    <h3><b>Pay Now</b></h3>
+                    <h4>₹{{totalPrice}}</h4>
+                </div>
+
+                <div class="book">
+                    <button (click)="bookHotel()" class="btn-success">Pay and Book Now</button>
+                </div>
+            </mat-card>
+
+        </div>
+        
+    </div>
+<mat-divider></mat-divider>
+    <div class="col-lg-8 detail" >
+
+            <div class="heading" style="display: flex; flex-direction: column;">
+                <h1 class="card-title"><b>{{hotelInfo?.hotelName}}</b></h1>
+                <h4><i class="fa fa-map-marker" style="color:green; " aria-hidden="true"></i> {{hotelInfo?.location}}  <b>{{hotelInfo?.city}}</b></h4>
+            </div>
+        
+
+
+        <div class="heading">
+            <button class="btn rating btn-success">
+                <i class="fa fa-star" aria-hidden="true"></i>
+               2345</button>
+            <h2>934 reviews and 123 ratings</h2>
+        </div>
+
+        <h3 style="color: green;">Special Price</h3>
+
+        <div class="heading">
+            <h1 class="card-title">₹3400</h1>
+            &nbsp; &nbsp;
+            <h3>
+                <del>₹
+                    5600</del>
+            </h3>
+        </div>
+
+        <div class="offers">
+            <h3><i style="color: green;" class="fa fa-tags"></i> Special PriceGet extra 11% off (price inclusive of discount)T&C</h3>
+
+            <h3><i style="color: green;" class="fa fa-tags"></i> Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</h3>
+
+            <h3> <i style="color: green;" class="fa fa-tags"></i> No Cost EMI on Flipkart Axis Bank Credit CardT&C</h3>
+        </div>
+
+
+          <mat-tab-group>
+            <mat-tab label="Weather">
+                
+                <iframe src="https://www.meteoblue.com/en/weather/widget/three/india_el-salvador_3585481?geoloc=fixed&nocurrent=0&noforecast=0&days=4&tempunit=FAHRENHEIT&windunit=MILE_PER_HOUR&layout=bright"  frameborder="0" scrolling="NO" allowtransparency="true" sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
+                style="width: 100%; height: 587px"></iframe><div>
+                    <a href="https://www.meteoblue.com/en/weather/week/india_el-salvador_3585481?utm_source=weather_widget&utm_medium=linkus&utm_content=three&utm_campaign=Weather%2BWidget" target="_blank"></a></div>
+            </mat-tab>
+            <mat-tab label="Amenities">
+                <div class="features-container">
+                    
+                    <div class="parking">
+                       <img src="../../../../assets/parking.png"/>
+                       &nbsp; <div>Free and spacious parking</div>
+                    </div>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div class="ac">
+                        <img src="../../../../assets/ac.png"/>
+                        &nbsp; <div>Uninterrupted 24x7 AC</div>
+                    </div>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div class="wifi">
+                        <img src="../../../../assets/wifi.png"/>
+                        &nbsp; <div>Free Wifi with 5G unlimited data</div>
+                    </div>
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div class="airport">
+                        <img src="../../../../assets/airport.png"/>
+                        &nbsp; <div>2KM International Airport</div>
+                     </div>
+                     <mat-divider [vertical]="true"></mat-divider>
+                     <div class="taxi">
+                        <img src="../../../../assets/taxi.png"/>
+                        &nbsp; <div>Free Cab service available</div>
+                     </div>
+                     <mat-divider [vertical]="true"></mat-divider>
+                     <div class="pool">
+                        <img src="../../../../assets/pool.png"/>
+                        &nbsp; <div>Enjoy the luxurious pool </div>
+                     </div>
+                     <mat-divider [vertical]="true"></mat-divider>
+                     <div class="parking">
+                        <img src="../../../../assets/bus-stand.png"/>
+                        &nbsp; <div>1KM Inter state bus terminal</div>
+                     </div>
+                   </div>
+                   <mat-divider></mat-divider>
+            </mat-tab>
+
+            <mat-tab label="Reviews" class="reviews"> 
+                <div style="display: flex; align-items: baseline;">
+
+                    <button class="btn rating btn-success btn-sm">
+                        <i class="fa fa-star" aria-hidden="true"></i> 4.3
+                     </button>
+                    <h4> <b>Kamlesh Singh</b> it was great experience here everything was so awesome. room was so spacious. clean</h4>
+                </div>
+
+                <div style="display: flex; align-items: baseline;">
+
+                    <button class="btn rating btn-success btn-sm">
+                        <i class="fa fa-star" aria-hidden="true"></i> 4.4
+                     </button>
+                    <h4> <b>Priyanka Jha</b> very good experience food is not good but room is nice, staff is cooperative</h4>
+                </div>
+
+                <div style="display: flex; align-items: baseline;">
+
+                    <button class="btn rating btn-success btn-sm">
+                        <i class="fa fa-star" aria-hidden="true"></i> 4.6
+                     </button>
+                    <h4> <b>Brijesh Chatterjee</b> Our experience was really good here, food and services were up to the mark.</h4>
+                </div>
+
+                <div style="display: flex; align-items: baseline;">
+
+                    <button class="btn rating btn-success btn-sm">
+                        <i class="fa fa-star" aria-hidden="true"></i> 4.4
+                     </button>
+                    <h4> <b>Saqib Ali</b> This is the best hotel in the town</h4>
+                </div>
+
+                <div style="display: flex; align-items: baseline;">
+
+                    <button class="btn rating btn-success btn-sm">
+                        <i class="fa fa-star" aria-hidden="true"></i> 4.4
+                     </button>
+                    <h4> <b>Jagdeep Randhawa</b> Best part of this hotel was pool</h4>
+                </div>
+
+                <div style="display: flex; align-items: baseline;">
+
+                    <button class="btn rating btn-danger btn-sm">
+                        <i class="fa fa-star" aria-hidden="true"></i> 2.1
+                     </button>
+                    <h4> <b>Lucky </b> Really nice experience. rooms were really spacious and comfortable. Staff somewhat rude...!</h4>
+                </div>
+
+            </mat-tab>
+            <mat-tab label="Hotel Policies">
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> According to government regulations, a valid Photo ID has to be carried by every person above the age of 18 staying at our Hotel. The identification proofs accepted are Drivers License, Voters Card, Passport, Ration Card. Without valid ID the guest will not be allowed to check in.</h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> The primary guest checking in to the hotel must be at least 18 years of age. </h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i>The standard check-in time is 2:00 PM and the standard check-out time is 12:00 PM. After booking you will be sent an email confirmation with hotel phone number. You can contact the hotel directly for early check-in or late check-out. Early check-in or late check-out is subject to availability and may be chargeable by Crowne Plaza Mayur Vihar. </h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> This is a couple friendly property. Unmarried/Unrelated couples are allowed to check-in. Local Ids can be presented as proof of identification. Final rights of admission/check-in remain reserved with the hotel management & refund can be denied in-case any misconduct is observed by the hotel management.</h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> The room tariff includes all taxes. The amount paid for the room does not include charges for optional services and facilities (such as room service, mini bar, snacks or telephone calls). These will be charged by the hotel at the time of check-out from the hotel. </h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> For any update, the customer shall pay applicable cancellation/modification charges.</h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> Modified bookings will be subject to availability and revised booking policy of the hotel.</h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i>The cancellation/modification charges are standard and any waiver is entirely on the hotel's discretion. </h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i>Number of modifications possible on a booking will be on the discretion of Goibibo. </h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i>Selective offers of Goibibo will not be valid on cancellation or modification of a booking. </h5>
+                <h5><i style="color: black;" class="fa fa-hand-o-right"></i> Any e-coupon discount on the original booking shall be forfeited in the event of cancellation or modification.</h5>
+
+
+            
+            </mat-tab>
+
+            <mat-tab label="Location"> 
+                <div class="container">
+                    <div class="row-fluid">
+                        <div class="span8">
+                            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
+                        </div>
+                        
+                          <div class="span4">
+                            <h2>Snail mail</h2>
+                            <address>
+                                <strong>Hythe Window Cleaning</strong><br>
+                                15 Springfield Way<br>
+                                Hythe<br>
+                                Kent<br>
+                                United Kingdon<br>
+                                CT21 5SH<br>
+                                <abbr title="Phone">P:</abbr> 01234 567 890
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+          </mat-tab-group>
+          
+
+
+    </div>
+
+
+</div>

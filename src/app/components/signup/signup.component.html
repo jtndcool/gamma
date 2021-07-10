@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <simple-notifications [options]="options"></simple-notifications>
+    <div class="row" id="form-inputs">
+        <div class="col-md-8 mx-auto d-block">
+            <div class="card mb-3">
+                <div class="row" style="justify-content: center;">
+                    <div class="col-md-8">
+                        <div class="card-body" style="display: flex; flex-direction:column;">
+                            <img src="../../../../assets/logo-1.png" class="d-block mx-auto">
+                            <mat-spinner *ngIf="isLoading" style="color:red"></mat-spinner>
+
+                            <form *ngIf="!isLoading" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label> <i class="fa fa-user pt-1" aria-hidden="true"></i> Username
+                                            </mat-label>
+                                            <input type="text" required ngModel name="userName" matInput placeholder="Username">
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label><i class="fa fa-envelope pt-1" aria-hidden="true"></i> Email
+                                            </mat-label>
+                                            <input required type="email" ngModel name="email" matInput placeholder="Email">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label><i class="fa fa-key pt-1"></i> Password</mat-label>
+                                            <input required type="password" ngModel name="password" matInput placeholder="Password">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="example-full-width" appearance="fill">
+                                            <mat-label><i class="fa fa-mobile pt-1" aria-hidden="true"></i> Mobile
+                                            </mat-label>
+                                            <input required maxlength="10" type="tel"  ngModel ngModel name="mobile" matInput placeholder="Mobile">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <mat-form-field class="example-full-width" style="width:100%" appearance="fill">
+                                            <mat-label><i class="fa fa-address-card-o pt-1" aria-hidden="true"></i>
+                                                Address</mat-label>
+                                            <textarea required type="text" minlength="1" ngModel name="address" matInput placeholder="Address"></textarea>
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="text-center">
+                                    <button [disabled]="!authForm.valid" class="btn btn-danger btn-sm">Register</button>
+                                </div>
+
+                            </form>
+
+                            <div class="text-center">
+
+                                <button routerLink="/login" class="btn btn-success btn-sm">Login</button>
+                                <p>Already Registered? Click above to Login</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

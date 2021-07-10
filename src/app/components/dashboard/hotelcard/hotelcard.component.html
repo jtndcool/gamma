@@ -1,0 +1,51 @@
+
+    <div class="row">
+        <div class="col img-hotel">
+            <img  src={{hotel?.image}} alt="hotel" >
+        </div>
+        <div class="col">
+            
+               <h2 class="name">{{hotel?.hotelName}}</h2>
+               <h3 class="address">{{hotel?.location}} &nbsp; <b>{{hotel?.city}}</b></h3>
+               <div class="rating-container">
+                <div style="background-color: rgb(59, 138, 59); font-size:12px; color:white; padding:1px 4px 1px 2px; border-radius:2px">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                      4.6 
+                 </div>
+                 &nbsp;  <p>(456 ratings) .Excellent </p>
+               </div>
+               <div class="features-container">
+                <div class="parking">
+                   <img src="../../../../assets/parking.png"/>
+                   &nbsp; <div>Parking</div>
+                </div>
+                <div class="ac">
+                    <img src="../../../../assets/ac.png"/>
+                    &nbsp; <div>AC</div>
+                </div>
+                <div class="wifi">
+                    <img src="../../../../assets/wifi.png"/>
+                    &nbsp; <div>Free Wifi</div>
+                </div>
+                
+               </div>
+            
+                 
+            <div class="price-container">
+                <div class="price" style="display: flex;">
+                  
+                    <p class="real">₹ {{hotel?.price}} </p> &nbsp;
+                    <del>₹{{(hotel?.price*(10/7)) | number: '1.0-0'}} </del> &nbsp;
+                    <p class="offer"> 30% off for coupon HURRYBOOK...!</p>
+
+                </div>
+                <div class="book">
+                    <button class="book-button"(click)="book()" >Book Now</button>
+                    &nbsp;
+                     <button class="details-button" (click)="book()">Details</button>
+                </div>
+            </div>
+         
+        </div>
+      </div>
+      <mat-divider></mat-divider>
